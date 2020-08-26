@@ -26,9 +26,11 @@
     * '부수 효과(side effect)가 없어야 한다'는 것과 같은 말
     * 참조 투명성(referential transparency)
     * 스칼라에서는 mutable 데이터도 사용할 순 있다. 장려하진 않는다
-    
 * Why Scala?
   * 호환성
+    * Java 와 완벽하게 호환
+    * Java API 를 많은 부분 재사용
+    * 심지어 깔끔하게 기능을 추가(implicit conversion)
   * 간결성
   * 고수준 추상화
   * 고급 정적 타입
