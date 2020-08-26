@@ -19,10 +19,10 @@
     * 믹스인(≠ 다중상속)
 * 스칼라는 완전한 함수형언어다
   * FP 는 2가지 주요 아이디어를 기반으로한다
-  * 1. 함수가 일급 객체(first-class citizen)다
+  * 첫째. 함수가 일급 객체(first-class citizen)다
     * 즉, 함수 인자, 함수 반환 값, 변수에 담는 값으로 쓰일 수 있다
     * 이러면 표현력이 엄청 나게 늘어난다
-  * 2. 데이터는 Immutable 해야한다
+  * 둘째. 데이터는 Immutable 해야한다
     * '부수 효과(side effect)가 없어야 한다'는 것과 같은 말
     * 참조 투명성(referential transparency)
     * 스칼라에서는 mutable 데이터도 사용할 순 있다. 장려하진 않는다
