@@ -27,3 +27,9 @@
     * 참조 투명성(referential transparency)
     * 스칼라에서는 mutable 데이터도 사용할 순 있다. 장려하진 않는다
     
+* Why Scala?
+  * 호환성
+  * 간결성
+  * 고수준 추상화
+  * 고급 정적 타입
+  
