@@ -8,9 +8,9 @@
 |    1    | 확장 가능한 언어                    | :white_check_mark: |
 |    2    | 스칼라 첫걸음                      | :white_check_mark: |
 |    3    | 스칼라 두 번째 걸음                 | :white_check_mark: |
-|    4    | 클래스와 객체                      |      |
-|    5    | 기본 타입과 연산                    |      |
-|    6    | 함수형 객체                        |      |
+|    4    | 클래스와 객체                      | :white_check_mark: |
+|    5    | 기본 타입과 연산                    | :white_check_mark: |
+|    6    | 함수형 객체                        | :white_check_mark: |
 |    7    | 내장 제어 구문                      |      |
 |    8    | 함수와 클로저                       |      |
 |    9    | 흐름 제어 추상화                    |      |
