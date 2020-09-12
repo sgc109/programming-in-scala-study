@@ -118,5 +118,17 @@ val vector =
 * 실수하기 쉬운 부분
   - for-yield 표현식은 *for 절 yield 본문* 형태를 가짐
   - 즉, 중괄호('{}')가 사용되더라도 yield 뒤에 나와야지, 중괄호 안에 yield 를 넣으면 컴파일 오류
-
+  ```scala
+  for (i <- 0 to 10) {
+    val ix10 = i * 10
+    yield ix10
+  }
+  ```
+  - 가 아니라
+  ```scala
+  for (i <- 0 to 10) yield {
+    val ix10 = i * 10
+    ix10
+  }
+  ```  
 ## 04. try 표현식으로 예외 다루기
