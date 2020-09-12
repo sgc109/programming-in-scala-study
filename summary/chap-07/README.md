@@ -30,7 +30,7 @@
 * while 와 do-while 은 수행 결과에는 관심이 없으므로 expression 이 아닌 loop 라고 부름
 * 결과값은 Unit 타입의 `()` 임
   - Unit 타입의 값을 반환 한다는 것 자체가 Java 의 void 와는 다름
-  ```sbtshell
+  ```scala
   scala> def unitFunc() = {}
   unitFunc: ()Unit
 
