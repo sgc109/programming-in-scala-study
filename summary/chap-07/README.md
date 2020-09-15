@@ -133,3 +133,98 @@ val vector =
   }
   ```  
 ## 04. try 표현식으로 예외 다루기
+### 예외 발생시키기
+* 자바와는 달리 스칼라에서 throw 구문은 Nothing 타입의 값을 반환
+* 어차피 이 값을 쓸 수는 없지만 if, for 문과 같이 값을 반환하게 해서 일관된 방식을 사용하기 위함
+### 발생한 예외 잡기
+* catch 절은 pattern match 와의 일관성을 유지하기 위해 case 문을 사용
+```scala
+try {
+  val f = new FileReader("input.txt")
+} catch {
+  case ex: FileNotFoundException => // 생략
+  case ex: IOException => // 생략
+}
+```
+* case 문은 위에서부터 차례로 수행하다가 적절한 타입을 만나면 이후 case 문은 무시
+### finally 절
+```scala
+val v = try { // 여기서 v 는 2
+  println("hi")
+  throw new Exception
+  1 // 예외가 발생하지 않을 때만 v 에 들어감
+} catch {
+  case e: Exception => {
+    println("hey")
+    2 // try 에서 예외가 발생하고, 해당 case 문에서 예외가 잡힐 때 v 에 들어감
+  }
+} finally {
+  println("bye") // 그 어떤 상황에서도 마지막에 무조건 실행
+  3 // 무조건 버려지므로 아무런 의미가 없음
+}
+println(v)
+```
+* finally 절은 try 문에서 예외가 발생하던 하지 않던(+발생한 예외가 잡히던 말던) 상관없이 무조건 실행됨
+* 그래서 주로 자원을 반환하는데 사용
+* 하지만 finally 블록의 결과값은 무조건 버려짐
+* try-catch-finally 절의 경우, try 절 내에서 예외가 발생하지 않았을 때 전체 결과는 try 절의 결과임
+* try 내에서 예외가 발생하는 경우, 만약 catch 절에서 예외가 잡힌다면 catch 절의 결과가 전체 결과이며, 안 잡힌다면 Nothing 을 반환
+
+## 05. match 표현식
+```scala
+val drink = someValue match {
+  case "pizza" => "coke"
+  case "chicken" => "beer"
+  case _ => "soju" // default case
+}
+```
+* 자바의 switch 와는 달리 어떤 상수값도 쓸 수 있음
+* case 문에 break 필요없음
+* 다른 표현식과 마찬가지로 표현식의 결과가 값임
+
+## 06. break 와 continue 없이 살기
+* 스칼라에는 break 와 continue 가 없음
+* scala.util.control.Breaks 클래스의 break 메소드와 breakable 메소드를 쓰면 되긴 하지만 권장하진 않음(쓰지 말자)
+* break 와 continue 대신 if 문으로 감싸는 식으로 잘 구현하면 두 구문을 대체할 수 있음
+* 예를 들어 다음과 같은 continue 사용 예는
+```java
+var i = 0
+while(i < 10) {
+    if(어쩌구) {
+        i += 1;
+        continue
+    }
+    // 저쩌구
+    i += 1;
+}
+```
+* 다음과 같이 작성하면 됨
+```scala
+var i = 0
+while(i < 10) {
+  if (!어쩌구) {
+     // 저쩌구
+  }
+  i += 1
+}
+```
+* var 도 안쓰려면 재귀로 구현하면 됨
+
+## 07. 변수 스코프
+* 다른 많은 언어와 같이 블락을 열 때마다 새로운 변수 스코프가 생김
+* 내부 스코프에서는 외부 스코프에 정의된 변수와 같은 이름을 사용할 수 있음
+* 이 때는 내부 스코프의 변수가 외부 스코프의 변수를 **가렸다**고 함
+* 하지만 가능하면 다른 이름을 쓰자
+* 스칼라 인터프리터에서는 같은 이름의 변수를 여러번 정의할 수 있는데, 그 이유는 실제로 다음과 같이 동작하기 때문
+```scala
+val a = 1;
+{
+  val a = 2;
+  {
+    println(a)
+  }
+}
+```
+
+## 08. 명령형 스타일 코드 리팩토링
+* var, while 를 사용하여 명령형으로 코드를 작성하는 대신 val, for, 도우미 함수, 재귀 함수를 잘 활용하여 함수형을 작성하자  
