@@ -11,9 +11,9 @@
 |    4    | 클래스와 객체                      | :white_check_mark: |
 |    5    | 기본 타입과 연산                    | :white_check_mark: |
 |    6    | 함수형 객체                        | :white_check_mark: |
-|    7    | 내장 제어 구문                      |      |
-|    8    | 함수와 클로저                       |      |
-|    9    | 흐름 제어 추상화                    |      |
+|    7    | 내장 제어 구문                      | :white_check_mark: |
+|    8    | 함수와 클로저                       | :white_check_mark: |
+|    9    | 흐름 제어 추상화                    | :white_check_mark: |
 |    10   | 상속과 구성                       |      |
 |    11   | 스칼라의 계층구조                   |      |
 |    12   | 트레이트                          |      |
